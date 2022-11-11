@@ -1,0 +1,2 @@
+the code in files: licznik.v licznik_tb is taken from the article
+and the copyright to it is held by the author of this article
