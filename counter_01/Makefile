@@ -1,0 +1,22 @@
+#author: plapacz6@gmail.com
+#date: 2022-11-12
+
+TESTED_MODULE1=counter_01
+EXECUTABLE_SIMULATION1=$(TESTED_MODULE1)_tb
+
+all: $(EXECUTABLE_SIMULATION1)
+	printf ""
+	printf "  run $(EXECUTABLE_SIMULATION1)"
+	printf "  ctrl + c - TO BREAK"
+	printf "  help   - HELP (AFTER BREAK)"
+	printf "  finish - TO EXIT SIMULATION"
+	printf ""
+
+$(EXECUTABLE_SIMULATION1): $(TESTED_MODULE1).v $(EXECUTABLE_SIMULATION1).v
+	iverilog -o $(EXECUTABLE_SIMULATION1)  \
+  $(TESTED_MODULE1).v $(EXECUTABLE_SIMULATION1).v
+
+.PHONY: clean
+
+clean:
+	- rm $(EXECUTABLE_SIMULATION1) $(EXECUTABLE_SIMULATION1).vcd
